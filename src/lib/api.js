@@ -63,6 +63,7 @@ export function startKakaoLogin() {
     try { window.Kakao.Auth.setAccessToken(null) } catch {}
     const timeout = setTimeout(() => reject(new Error('로그인 시간이 초과됐어요.')), 45000)
     window.Kakao.Auth.login({
+      throughTalk: false,
       success: () => {
         clearTimeout(timeout)
         window.Kakao.API.request({
